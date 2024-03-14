@@ -1,5 +1,14 @@
 # Pippy Chatbot
 
+## What's in here
+### embed_gen
+This folder contains `docs_embedder.ipynb`, which turns PDF documents into embeddings in a vector database such as Pinecone.
+It also comes with sample files including the `pages.csv` metadata file and the `pdfs` folder.
+
+The columns of the `pages.csv` are categories that form the metadata of an embedded text to filter a query by. 
+For example, you can filter the chatbot to only search for relevant docs for Domino 5.8.0.
+`pdfs` contain a sample PDF of an article that can be used to embed its text.  
+
 ## Set-up
 ### Datasets
 
