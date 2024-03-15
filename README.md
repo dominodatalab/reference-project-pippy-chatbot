@@ -9,6 +9,15 @@ The columns of the `pages.csv` are categories that form the metadata of an embed
 For example, you can filter the chatbot to only search for relevant docs for Domino 5.8.0.
 `pdfs` contain a sample PDF of an article that can be used to embed its text.  
 
+### chatbot.py
+This contains the main business logic of retrieving a user query, doing a search filtered by metadata in a vector database
+for relevant context, and combining this context with ChatGPT for a relevant response.
+
+### Other
+* `app.sh` contains configuration logic
+* `ui` includes frontend logic for rendering the app's sidebar with a description and filtering options
+* `assets` folder contains an image of Pippy!
+
 ## Set-up
 ### Datasets
 
