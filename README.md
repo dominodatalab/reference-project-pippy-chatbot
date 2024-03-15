@@ -19,9 +19,14 @@ for relevant context, and combining this context with ChatGPT for a relevant res
 * `assets` folder contains an image of Pippy!
 
 ## Set-up
-### Datasets
+### Dataset
+You can create a Domino Dataset containing your own metadata file and PDFs, similar to the sample files, to be embedded 
+into a vector database. Then, reference it in `docs_embedder.ipynb` so Pippy can answer questions based on your data!
 
 ### Data Source
+Set up a vector database as a Domino Data Source to store and retrieve embeddings. You can use any of the supported
+vector databases such as [Pinecone](https://docs.dominodatalab.com/en/latest/user_guide/5c64ef/connect-to-pinecone/) or
+[Qdrant](https://docs.dominodatalab.com/en/latest/user_guide/c2364c/connect-to-qdrant/).
 
 ### AI Gateway
 
