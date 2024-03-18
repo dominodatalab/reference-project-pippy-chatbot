@@ -1,11 +1,6 @@
 import streamlit as st
 import random
 
-"""
-TODO: Use Coveo to get top queries submitted by customers and populate `popular_questions` variable with the results
-"""
-
-
 def build_sidebar():
     popular_questions = [
         "Conda Virtual Environments in Compute Environments in Domino",
