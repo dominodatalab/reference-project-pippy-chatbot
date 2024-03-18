@@ -1,20 +1,17 @@
-import streamlit as st
-import os
-import mlflow
-import json
-import requests
-import pandas as pd
-import pinecone
-import subprocess
-from mlflow.deployments import get_deploy_client
-from ui.sidebar import build_sidebar
-from langchain_community.embeddings import MlflowEmbeddings
 from domino_data.vectordb import DominoPineconeConfiguration
-from langchain.chains import ConversationChain
-from langchain_community.chat_models import ChatMlflow
-from langchain.schema import HumanMessage, SystemMessage
 from langchain import PromptTemplate
+from langchain.chains import ConversationChain
 from langchain.memory import ConversationSummaryMemory
+from langchain.schema import HumanMessage, SystemMessage
+from langchain_community.chat_models import ChatMlflow
+from langchain_community.embeddings import MlflowEmbeddings
+from ui.sidebar import build_sidebar
+
+import mlflow
+import os
+import pinecone
+import streamlit as st
+import subprocess
 
 # Number of texts to match (may be less if no suitable match)
 NUM_TEXT_MATCHES = 3

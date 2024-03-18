@@ -1,10 +1,5 @@
-import streamlit as st
 import random
-
-"""
-TODO: Use Coveo to get top queries submitted by customers and populate `popular_questions` variable with the results
-"""
-
+import streamlit as st
 
 def build_sidebar():
     popular_questions = [
