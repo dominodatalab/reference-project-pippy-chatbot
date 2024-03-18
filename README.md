@@ -1,4 +1,8 @@
-# Pippy Chatbot
+# Pippy Chatbot Template
+Pippy is a retrieval-augmented generation (RAG) Chatbot that utilizes vector embeddings of 
+[Domino documentation](https://docs.dominodatalab.com/) in combination with a large language model (LLM) like ChatGPT.
+In this repository, you can find a template to build your RAG chatbot off of, including source files
+to embed your texts and deploy the app.
 
 ## What's in here
 ### embed_gen
@@ -29,6 +33,7 @@ vector databases such as [Pinecone](https://docs.dominodatalab.com/en/latest/use
 [Qdrant](https://docs.dominodatalab.com/en/latest/user_guide/c2364c/connect-to-qdrant/).
 
 ### AI Gateway
+
 
 ### Environment Definition
 Use the following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.10.0.
