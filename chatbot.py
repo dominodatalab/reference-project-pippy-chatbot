@@ -1,9 +1,3 @@
-import mlflow
-import os
-import pinecone
-import streamlit as st
-import subprocess
-
 from domino_data.vectordb import DominoPineconeConfiguration
 from langchain import PromptTemplate
 from langchain.chains import ConversationChain
@@ -12,6 +6,12 @@ from langchain.schema import HumanMessage, SystemMessage
 from langchain_community.chat_models import ChatMlflow
 from langchain_community.embeddings import MlflowEmbeddings
 from ui.sidebar import build_sidebar
+
+import mlflow
+import os
+import pinecone
+import streamlit as st
+import subprocess
 
 # Number of texts to match (may be less if no suitable match)
 NUM_TEXT_MATCHES = 3
