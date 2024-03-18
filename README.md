@@ -1,6 +1,6 @@
 # Pippy Chatbot Template
-Pippy is a retrieval-augmented generation (RAG) Chatbot that utilizes vector embeddings of 
-[Domino documentation](https://docs.dominodatalab.com/) in combination with a large language model (LLM) like ChatGPT.
+Pippy is a Retrieval-Augmented Generation (RAG) Chatbot that utilizes vector embeddings of 
+[Domino documentation](https://docs.dominodatalab.com/) in combination with a Large Language Model (LLM) like ChatGPT.
 In this repository, you can find a template to build your RAG chatbot off of, including source files
 to embed your texts and deploy the app.
 
@@ -28,12 +28,18 @@ You can create a Domino Dataset containing your own metadata file and PDFs, simi
 into a vector database. Then, reference it in `docs_embedder.ipynb` so Pippy can answer questions based on your data!
 
 ### Data Source
-Set up a vector database as a Domino Data Source to store and retrieve embeddings. You can use any of the supported
-vector databases such as [Pinecone](https://docs.dominodatalab.com/en/latest/user_guide/5c64ef/connect-to-pinecone/) or
+Set up a vector database as a 
+[Domino Data Source](https://docs.dominodatalab.com/en/latest/user_guide/fbb41f/data-source-connectors/) in your 
+Domino Deployment to store and retrieve embeddings. You can use any of the supported vector databases such as 
+[Pinecone](https://docs.dominodatalab.com/en/latest/user_guide/5c64ef/connect-to-pinecone/) or
 [Qdrant](https://docs.dominodatalab.com/en/latest/user_guide/c2364c/connect-to-qdrant/).
 
 ### AI Gateway
-
+Domino AI Gateway allows you to securely access external LLMs with access control and auditing. To create an AI Gateway
+endpoint, use the 
+[aigateway](https://docs.dominodatalab.com/en/latest/api_guide/8c929e/rest-api-reference/#_createGatewayEndpoint) 
+endpoint in the Domino REST API. More information can be found in our 
+[AI Gateway Documentation](https://docs.dominodatalab.com/en/5.9/admin_guide/cce362/ai-gateway/#_ai_gateway_endpoints).
 
 ### Environment Definition
 Use the following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.10.0.
@@ -45,7 +51,7 @@ RUN pip install --user dominodatalab-data==5.10.1
 RUN pip install --user pinecone-client==2.2.4
 ```
 
-## Local Development
+## Development in Domino Deployment
 
 To develop and test your changes, create a workspace with the above environment definition.
 Then:
