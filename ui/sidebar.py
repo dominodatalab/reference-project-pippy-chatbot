@@ -1,5 +1,5 @@
-import streamlit as st
 import random
+import streamlit as st
 
 def build_sidebar():
     popular_questions = [
