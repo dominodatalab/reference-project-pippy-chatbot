@@ -36,7 +36,7 @@ RELEASES_MAPPING = {
     "4.5": ["4.5", "4-5-2", "4-5-1", "4-5-0"], 
     "4.4": ["4.4", "4-4-2", "4-4-1", "4-4-0"], 
     "4.3": ["4.3", "4-3-3", "4-3-2", "4-3-1", "4-3-0"],
-    "4.2": ["4.2", "4-2"], # "4-2" seems correct based on the data
+    "4.2": ["4.2", "4-2"],
     "4.1": ["4.1", "4-1"], 
     "3.6": ["3.6", "3-6"]
 }
@@ -134,9 +134,7 @@ def get_relevant_docs(user_input):
 
     return relevant_docs
 
-
 def build_system_prompt(user_input):
-
     # Retrieve context
     relevant_docs = get_relevant_docs(user_input)
     actual_num_matches = len(relevant_docs["matches"])
@@ -174,7 +172,6 @@ def build_system_prompt(user_input):
 
 # Query the Open AI Model
 def queryOpenAIModel(user_input):
-
     system_prompt = build_system_prompt(user_input)            
     messages = [
         SystemMessage(
@@ -187,6 +184,8 @@ def queryOpenAIModel(user_input):
     output = st.session_state.conversation.predict(input=messages)
 
     # Log results to MLflow
+    # Modify the below to suit your logging requirements
+    # Some ideas for modification: Log which vector embeddings and associated texts were found, the similarity score, speed of response, etc.
     with mlflow.start_run():
         mlflow.log_param("commit", subprocess.check_output(['git', 'log', '-1']).decode('ascii').strip())
         mlflow.log_param("version", domino_docs_version)
@@ -198,12 +197,10 @@ def queryOpenAIModel(user_input):
 
     return output
 
-
 # Function for generating LLM response
 def generate_response(prompt):
     response_generated = queryOpenAIModel(prompt)
     return response_generated
-
 
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":
