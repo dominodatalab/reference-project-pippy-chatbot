@@ -41,6 +41,14 @@ endpoint, use the
 endpoint in the Domino REST API. More information can be found in our 
 [AI Gateway Documentation](https://docs.dominodatalab.com/en/5.9/admin_guide/cce362/ai-gateway/#_ai_gateway_endpoints).
 
+### MLflow
+We log the user queries, system prompt, conversation summary, search filters, and responses in the "Experiments" 
+tab of your Domino project, which implements MLflow. The logic for this resides in `chatbot.py` and 
+can be modified to suit your logging requirements.
+
+To learn more about MLflow in Domino, check out our 
+[Documentation on traking and monitoring](Track and monitor experiments).
+
 ### Environment Definition
 Use the following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.10.0.
 
