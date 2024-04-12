@@ -49,8 +49,8 @@ can be modified to suit your logging requirements.
 To learn more about MLflow in Domino, check out our 
 [Documentation on traking and monitoring](Track and monitor experiments).
 
-### Environment Definition
-Use the following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.10.0.
+### Environment Requirements
+Use the following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.11.0 or above.
 
 Additional Dockerfile instructions:
 ```
@@ -58,6 +58,9 @@ RUN pip install streamlit==1.31.1 pypdf==4.0.2 pinecone-client==3.1.0 ipywidgets
 RUN pip install --user dominodatalab-data==5.10.1
 RUN pip install --user pinecone-client==2.2.4
 ```
+
+### Hardware Requirements
+This project works with a standard small-sized hardware tier, such as the small-k8s tier on all Domino deployments.
 
 ## Development in Domino Deployment
 
