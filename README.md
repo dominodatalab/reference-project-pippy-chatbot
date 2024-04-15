@@ -54,7 +54,7 @@ Use the following base image: `Domino Standard Environment Py3.9 R4.3` for Domin
 
 Additional Dockerfile instructions:
 ```
-RUN pip install streamlit==1.31.1 pypdf==4.0.2 pinecone-client==3.1.0 ipywidgets==8.1.2 langchain==0.1.8
+RUN pip install streamlit==1.31.1 pypdf==4.0.2 ipywidgets==8.1.2 langchain==0.1.8
 RUN pip install --user dominodatalab-data==5.10.1
 RUN pip install --user pinecone-client==2.2.4
 ```
