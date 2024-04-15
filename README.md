@@ -41,15 +41,29 @@ endpoint, use the
 endpoint in the Domino REST API. More information can be found in our 
 [AI Gateway Documentation](https://docs.dominodatalab.com/en/5.9/admin_guide/cce362/ai-gateway/#_ai_gateway_endpoints).
 
-### Environment Definition
-Use the following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.10.0.
+### MLflow
+We log the user queries, system prompt, conversation summary, search filters, and responses in the "Experiments" 
+tab of your Domino project, which implements MLflow. The logic for this resides in `chatbot.py` and 
+can be modified to suit your logging requirements.
 
-Additional Dockerfile instructions:
+To learn more about MLflow in Domino, check out our 
+[Documentation on traking and monitoring](Track and monitor experiments).
+
+### Environment Requirements
+Select the "Pippy RAG Chatbot Environment" that is created with this project template. This will be available
+in the "Environment" tab of your Domino project.
+
+Alternatively, manually create this environment image by using following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.11.0 or above.
+
+With additional Dockerfile instructions:
 ```
-RUN pip install streamlit==1.31.1 pypdf==4.0.2 pinecone-client==3.1.0 ipywidgets==8.1.2 langchain==0.1.8
+RUN pip install streamlit==1.31.1 pypdf==4.0.2 ipywidgets==8.1.2 langchain==0.1.8
 RUN pip install --user dominodatalab-data==5.10.1
 RUN pip install --user pinecone-client==2.2.4
 ```
+
+### Hardware Requirements
+This project works with a standard small-sized hardware tier, such as the small-k8s tier on all Domino deployments.
 
 ## Development in Domino Deployment
 
