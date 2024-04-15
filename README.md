@@ -50,9 +50,12 @@ To learn more about MLflow in Domino, check out our
 [Documentation on traking and monitoring](Track and monitor experiments).
 
 ### Environment Requirements
-Use the following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.11.0 or above.
+Select the "Pippy RAG Chatbot Environment" that is created with this project template. This will be available
+in the "Environment" tab of your Domino project.
 
-Additional Dockerfile instructions:
+Alternatively, manually create this environment image by using following base image: `Domino Standard Environment Py3.9 R4.3` for Domino 5.11.0 or above.
+
+With additional Dockerfile instructions:
 ```
 RUN pip install streamlit==1.31.1 pypdf==4.0.2 ipywidgets==8.1.2 langchain==0.1.8
 RUN pip install --user dominodatalab-data==5.10.1
