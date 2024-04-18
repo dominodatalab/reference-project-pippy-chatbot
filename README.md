@@ -70,6 +70,7 @@ This project works with a standard small-sized hardware tier, such as the small-
 To develop and test your changes, create a workspace with the above environment definition.
 Then:
 
-1. Change ports in `app.sh` to `8887`
+1. Change ports in `app.sh` to any port that is free or keep the default
 2. Run `./app.sh`
-3. Go to `https://{domino-url}/{username}/{domino-project-name}/r/notebookSession/{runId}/proxy/8887/`
+3. Go to `https://{domino-host-url}/{domino-username}/{domino-project-name}/r/notebookSession/{runId}/proxy/8887/`
+where `runId` can be found in the URL of the workspace.
