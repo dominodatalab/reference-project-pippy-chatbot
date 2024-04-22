@@ -32,7 +32,10 @@ Set up a vector database as a
 [Domino Data Source](https://docs.dominodatalab.com/en/latest/user_guide/fbb41f/data-source-connectors/) in your 
 Domino Deployment to store and retrieve embeddings. You can use any of the supported vector databases such as 
 [Pinecone](https://docs.dominodatalab.com/en/latest/user_guide/5c64ef/connect-to-pinecone/) or
-[Qdrant](https://docs.dominodatalab.com/en/latest/user_guide/c2364c/connect-to-qdrant/).
+[Qdrant](https://docs.dominodatalab.com/en/latest/user_guide/c2364c/connect-to-qdrant/). 
+
+Additionally, create an index in the vector database to store the embeddings. 
+Note: Use an index with dimension 1536 if using OpenAI (to match OpenAI's text-embedding-ada-002 model dimensions).
 
 ### AI Gateway
 Domino AI Gateway allows you to securely access external LLMs with access control and auditing. To create an AI Gateway
@@ -47,7 +50,12 @@ tab of your Domino project, which implements MLflow. The logic for this resides 
 can be modified to suit your logging requirements.
 
 To learn more about MLflow in Domino, check out our 
-[Documentation on traking and monitoring](Track and monitor experiments).
+[documentation on tracking and monitoring](https://docs.dominodatalab.com/en/5.5/user_guide/da707d/track-and-monitor-experiments/).
+
+### Datasets (Optional)
+You can create [Datasets](https://docs.dominodatalab.com/en/latest/user_guide/0a8d11/create-and-modify-datasets/) in your Domino project
+and populate it with the data you want to create vector embeddings from (PDFs of articles and metadata file). This can
+then be mounted automatically when running a [Domino Workspace](https://docs.dominodatalab.com/en/4.6/user_guide/e6e601/launch-a-workspace/).
 
 ### Environment Requirements
 Select the "Pippy RAG Chatbot Environment" that is created with this project template. This will be available
