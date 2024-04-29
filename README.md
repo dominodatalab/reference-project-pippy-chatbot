@@ -87,16 +87,9 @@ then be mounted automatically when running a [Domino Workspace](https://docs.dom
 
 ### Environment Requirements
 The "Pippy RAG Chatbot Environment" is automatically created with this project template. This will be 
-available in the "Environment" tab of your Domino project and accessible to your workspaces and jobs.
+available in the "Environment" tab of your Domino project and accessible to your workspaces and jobs. You may reference
+this environment if you want to build your own environment with the same dependencies.
 
-Alternatively, manually create this environment image. This could be desirable if you want to modify the default 
-environment image that comes with this template. The default environment image consists of the
-`Domino Standard Environment Py3.9 R4.3` base image for Domino 5.10.0 or above and these additional Dockerfile instructions:
-```
-RUN pip install streamlit==1.31.1 pypdf==4.0.2 ipywidgets==8.1.2 langchain==0.1.8
-RUN pip install --user dominodatalab-data==5.11.dev1
-RUN pip install --user pinecone-client==2.2.4
-```
 ### Hardware Requirements
 This project works with a standard small-sized hardware tier, such as the small-k8s tier on all Domino deployments.
 
