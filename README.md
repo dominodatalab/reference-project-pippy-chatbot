@@ -18,7 +18,7 @@ This contains the main business logic of retrieving a user query, doing a search
 for relevant context, and combining this context with ChatGPT for a relevant response.
 
 ### Other
-* `app.sh` contains configuration logic
+* `app.sh` contains configuration logic for deploying the app for developing and production
 * `ui` includes frontend logic for rendering the app's sidebar with a description and filtering options
 * `assets` folder contains an image of Pippy!
 
