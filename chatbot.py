@@ -42,8 +42,8 @@ RELEASES_MAPPING = {
     "3.6": ["3.6", "3-6"]
 }
 
-# Set MLflow experiment to use for logging
-mlflow.set_experiment("chatbot-app")
+# Logs to default experience or uncomment and set custom MLflow experiment for logging
+# mlflow.set_experiment("you-experiment-name")
 
 # Initialize vector database index, replace with your Data Source name and your index name
 datasource_name = "pinecone-pippy"

@@ -100,8 +100,8 @@ Then:
 1. Change ports in `app.sh` to any free port such as `8887` (the default `8888` is the port used 
 when the app is published in Domino)
 2. Run `./app.sh`
-3. Go to `https://{domino-host-url}/{domino-username}/{domino-project-name}/r/notebookSession/{runId}/proxy/8887/`
-where `runId` can be found in the URL of the workspace.
+3. Go to `https://{domino-host-url}/{domino-username}/{domino-project-name}/notebookSession/{runId}/proxy/8887/`
+where `runId` can be found in the URL of the workspace or as the environment variable `DOMINO_RUN_ID`.
 
 ## Deploying the App
 1. Go to the "App" tab in you Domino project
