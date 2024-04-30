@@ -6,10 +6,11 @@ from langchain.schema import HumanMessage, SystemMessage
 from langchain_community.chat_models import ChatMlflow
 from langchain_community.embeddings import MlflowEmbeddings
 from ui.sidebar import build_sidebar
+from domino_data.vectordb import domino_pinecone3x_init_params, domino_pinecone3x_index_params
+from pinecone import Pinecone
 
 import mlflow
 import os
-import pinecone
 import streamlit as st
 import subprocess
 
@@ -41,23 +42,14 @@ RELEASES_MAPPING = {
     "3.6": ["3.6", "3-6"]
 }
 
-# Set MLflow experiment to use for logging
-mlflow.set_experiment("chatbot-app")
+# Logs to default experience or uncomment and set custom MLflow experiment for logging
+# mlflow.set_experiment("you-experiment-name")
 
-# Initialize Pinecone index, replace with your Data Source name
-datasource_name = "MyPineconeDataSource"
-conf = DominoPineconeConfiguration(datasource=datasource_name)
-api_key = os.environ.get("DOMINO_VECTOR_DB_METADATA", datasource_name)
-
-pinecone.init(
-    api_key=api_key,
-    environment="domino",
-    openapi_config=conf
-)
-
-# Choose appropriate index from Pinecone, replace with your index name
-index_name = "my-index"
-index = pinecone.Index(index_name)
+# Initialize vector database index, replace with your Data Source name and your index name
+datasource_name = "pinecone-pippy"
+index_name = "pippy-test"
+pc = Pinecone(**domino_pinecone3x_init_params(datasource_name))
+index = pc.Index(**domino_pinecone3x_index_params(datasource_name, index_name))
 
 # Create embeddings to embed queries
 embeddings = MlflowEmbeddings(
