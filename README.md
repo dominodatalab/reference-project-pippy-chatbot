@@ -4,6 +4,8 @@ Pippy is a Retrieval-Augmented Generation (RAG) Chatbot that utilizes a vector d
 This repository serves as a template based on Pippy to build your RAG chatbot off of, including logic to
 to embed your texts and deploy the app.
 
+![Pippy Chatbot UI Example](./assets/pippy-chatbot-ui-example.png)
+
 ## What's in here
 ### embed_gen
 This folder contains `docs_embedder.ipynb`, which turns PDF documents into embeddings in a vector database such as Pinecone.
@@ -42,12 +44,12 @@ allows you to securely access external LLMs with access control and auditing. Cr
 embeddings and chat. The embeddings endpoint allows you to access an embeddings model to create a vector embedding of 
 a chunk of text while the chat endpoint allows you to query a chat model to generate responses based on the embeddings.
 
-To create an AI Gateway endpoint , use the
-[aigateway](https://docs.dominodatalab.com/en/latest/api_guide/8c929e/rest-api-reference/#_createGatewayEndpoint)
-endpoint in the Domino REST API as shown below:
+Call the
+[Domino REST API to create an AI Gateway Endpoint](https://docs.dominodatalab.com/en/latest/api_guide/8c929e/rest-api-reference/#_createGatewayEndpoint) 
+using the commands below. Feel free to experiment with different models and other configurations.
 
-#### Embeddings Endpoint
-```
+#### Create Endpoint to Embed Text
+```bash
 curl -d '{     
     "endpointName":"embeddings",
     "endpointType":"llm/v1/embeddings",
@@ -57,8 +59,8 @@ curl -d '{
     "modelConfig":{"openai_api_key":"<OpenAI_API_Key>"}
 }' -H "X-Domino-Api-Key:<Domino_API_Key>" -H "Content-Type: application/json" -X POST https://<Deployment_Base_Url>/api/aigateway/v1/endpoints
 ```
-#### Chat Endpoint
-```
+#### Create Endpoint to Call a Chatbot Model
+```bash
 curl -d '{
     "endpointName":"chat",
     "endpointType":"llm/v1/chat",
@@ -100,8 +102,13 @@ Then:
 1. Change ports in `app.sh` to any free port such as `8887` (the default `8888` is the port used 
 when the app is published in Domino)
 2. Run `./app.sh`
-3. Go to `https://{domino-host-url}/{domino-username}/{domino-project-name}/notebookSession/{runId}/proxy/8887/`
+3. Go to `https://<domino-host-url>/<domino-username>/<domino-project-name>/notebookSession/<runId>/proxy/8887/`
 where `runId` can be found in the URL of the workspace or as the environment variable `DOMINO_RUN_ID`.
+
+Tip: You can use the following bash command in a Workspace terminal to obtain the URL:
+```bash
+echo -e "import os\nprint('https://<Deployment_Base_Url>/{}/{}/notebookSession/{}/proxy/8887/'.format(os.environ['DOMINO_STARTING_USERNAME'], os.environ['DOMINO_PROJECT_NAME'], os.environ['DOMINO_RUN_ID']))" | python3
+```
 
 ## Deploying the App
 1. Go to the "App" tab in you Domino project
