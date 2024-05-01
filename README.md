@@ -25,9 +25,13 @@ for relevant context, and combining this context with ChatGPT for a relevant res
 * `assets` folder contains an image of Pippy!
 
 ## Set-up
-### Dataset
-You can create a Domino Dataset containing your own metadata file and PDFs, similar to the sample files, to be embedded 
-into a vector database. Then, reference it in `docs_embedder.ipynb` so Pippy can answer questions based on your data!
+### Datasets
+You can create a [Dataset](https://docs.dominodatalab.com/en/latest/user_guide/0a8d11/create-and-modify-datasets/) in your Domino project
+and with the data you want to use to create vector embeddings from (see sample PDFs and metadata file for examples). Datasets will
+be automatically mounted when starting a [Domino Workspace](https://docs.dominodatalab.com/en/latest/user_guide/e6e601/launch-a-workspace/).
+Then, reference it in `docs_embedder.ipynb` so that your chatbot can answer questions based on your data!
+
+Alternatively, you can add your PDFs and metadata file directly into the project directory and reference them in your source code.
 
 ### Data Source
 Set up a vector database with an index as a 
@@ -81,11 +85,6 @@ already comes with your Domino deployment.
 
 To learn more about MLflow in Domino, check out our 
 [article on tracking and monitoring](https://docs.dominodatalab.com/en/latest/user_guide/da707d/track-and-monitor-experiments/).
-
-### Datasets (Optional)
-You can create [Datasets](https://docs.dominodatalab.com/en/latest/user_guide/0a8d11/create-and-modify-datasets/) in your Domino project
-and populate it with the data you want to create vector embeddings from (PDFs of articles and metadata file). This can
-then be mounted automatically when running a [Domino Workspace](https://docs.dominodatalab.com/en/latest/user_guide/e6e601/launch-a-workspace/).
 
 ### Environment Requirements
 The "Pippy RAG Chatbot Environment" is automatically created with this project template. This will be 
